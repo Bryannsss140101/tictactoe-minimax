@@ -1,8 +1,12 @@
+import os
+import time
+from collections import deque
 import tkinter as tk
 from tkinter import messagebox
 import threading
 import subprocess
 
+from . import easter_egg
 from .ai_engine import IA
 from .game_logic import winner, is_draw
 
@@ -34,6 +38,9 @@ class TicTacToeApp:
         self.score_x = 0
         self.score_o = 0
         self.score_d = 0
+
+        self._hard_clicks = deque(maxlen=6)
+        self._hard_window_s = 0.6
 
     def _init_style(self):
         self.c_bg = "#0b1220"
@@ -366,6 +373,35 @@ class TicTacToeApp:
     def set_diff(self, v):
         self.diff = int(v)
         self._refresh_diff_buttons()
+
+        if self.diff != 1:
+            self._hard_clicks.clear()
+            return
+
+        now = time.monotonic()
+
+        if self._hard_clicks and (now - self._hard_clicks[0]) > self._hard_window_s:
+            self._hard_clicks.clear()
+
+        self._hard_clicks.append(now)
+
+        if (
+            len(self._hard_clicks) == 6
+            and (self._hard_clicks[-1] - self._hard_clicks[0]) <= self._hard_window_s
+        ):
+            self._hard_clicks.clear()
+
+            video_path = os.path.abspath(
+                os.path.join(
+                    os.path.dirname(__file__), "..", "assets", "easter-egg.mp4"
+                )
+            )
+            self.root.after(
+                0,
+                lambda: easter_egg.run(
+                    self.root, video_path, volume_steps=10, brightness_percent=85
+                ),
+            )
 
     def set_start_player(self, v):
         self.start_player = int(v)
