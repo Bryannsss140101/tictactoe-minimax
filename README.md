@@ -20,7 +20,7 @@ Para ejecutar este proyecto en tu máquina local.
 
 1. Clona el repositorio.
 ```bash
-https://github.com/Bryannsss140101/tictactoe-minimax.git
+git clone https://github.com/Bryannsss140101/tictactoe-minimax.git
 cd tictactoe-minimax
 ```
 2. Ejecuta el archivo `Play.bat` con doble clic o desde la terminal
