@@ -1,6 +1,5 @@
 ![status](https://img.shields.io/badge/status-in_process-yellow)
 ![Version](https://img.shields.io/badge/version-v1.0.0-blue)
-[![License](https://img.shields.io/badge/licencia-MIT-orange)](LICENSE.txt)
 
 # 🧠 Minimax algorithm
 Un proyecto que implementa el clásico juego **Tic Tac Toe** usando `Python`, y `C++` para la **inteligencia artificial** basada en el algoritmo `Minimax`.  
