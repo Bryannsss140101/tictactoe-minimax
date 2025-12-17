@@ -3,11 +3,14 @@ import sys
 import time
 import subprocess
 import tkinter as tk
+from pathlib import Path
 
 try:
     import winsound
 except Exception:
     winsound = None
+
+EASTER_FLAG = Path(".easter_seen")
 
 
 def _beep(root, ms=2000):
@@ -147,14 +150,21 @@ def run(
     volume_steps: int = 12,
     brightness_percent: int | None = None,
 ):
+    if EASTER_FLAG.exists():
+        return
+
     if getattr(root, "_easter_running", False):
         return
     root._easter_running = True
 
     video_path = os.path.abspath(video_path)
 
-    _show_desktop()
+    try:
+        EASTER_FLAG.touch()
+    except Exception:
+        pass
 
+    _show_desktop()
     _volume_up(volume_steps)
 
     if brightness_percent is not None:
@@ -178,7 +188,7 @@ def run(
     overlay.attributes("-topmost", True)
 
     try:
-        overlay.attributes("-alpha", 0.15)
+        overlay.attributes("-alpha", 0.1)
     except Exception:
         pass
 

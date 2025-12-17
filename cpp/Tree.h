@@ -126,7 +126,7 @@ public:
     }
 
     if (difficulty == MEDIUM)
-      return getChoice(root, bestMove, 0.60);
+      return getChoice(root, bestMove, 0.7);
 
     return bestMove;
   }

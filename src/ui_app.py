@@ -40,7 +40,7 @@ class TicTacToeApp:
         self.score_d = 0
 
         self._hard_clicks = deque(maxlen=6)
-        self._hard_window_s = 0.6
+        self._hard_window_s = 0.75
 
     def _init_style(self):
         self.c_bg = "#0b1220"
