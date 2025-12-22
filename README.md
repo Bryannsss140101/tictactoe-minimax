@@ -1,4 +1,4 @@
-![status](https://img.shields.io/badge/status-in_process-yellow)
+![status](https://img.shields.io/badge/status-finished-birghtgreen)
 ![Version](https://img.shields.io/badge/version-v1.0.0-blue)
 
 # 🧠 Minimax algorithm
