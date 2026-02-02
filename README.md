@@ -6,7 +6,7 @@ Un proyecto que implementa el clásico juego **Tic Tac Toe** usando `Python`, y 
 Este repositorio incluye una IA que evalúa los posibles movimientos del tablero para elegir la mejor jugada.
 
 ### 📜 Tabla de contenido
-1. [Informe](#-informe)
+1. [Informe](P2__TicTacToe.pdf)
 2. [Requisitos](#-requisitos)
 3. [Implementación](#%EF%B8%8F-implementaci%C3%B3n)
 4. [Contribuciones](#-contribuciones)
